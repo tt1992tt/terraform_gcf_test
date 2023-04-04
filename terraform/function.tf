@@ -30,6 +30,8 @@ resource "google_cloudfunctions_function" "function" {
     source_archive_bucket = google_storage_bucket.function_bucket.name
     source_archive_object = google_storage_bucket_object.zip.name
     
+    trigger_http          = true
+    
     depends_on = [
         google_storage_bucket.function_bucket,
         google_storage_bucket_object.zip
