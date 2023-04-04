@@ -23,7 +23,7 @@ resource "google_cloudfunctions_function" "function" {
     entry_point = "Hola_Mundo"
     
     depends_on = [
-        google_storage_bucket.function_bucket.name,
+        google_storage_bucket.function_bucket,
         google_storage_bucket_object.object
     ]
 }
