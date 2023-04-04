@@ -27,6 +27,9 @@ resource "google_cloudfunctions_function" "function" {
     runtime     = var.python
     entry_point = "Hola_Mundo"
     
+    source_archive_bucket = google_storage_bucket.function_bucket.name
+    source_archive_object = google_storage_bucket_object.zip.name
+    
     depends_on = [
         google_storage_bucket.function_bucket,
         google_storage_bucket_object.zip
