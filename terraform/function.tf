@@ -17,17 +17,10 @@ resource "google_storage_bucket_object" "object" {
 }
 
 resource "google_cloudfunctions_function" "function" {
-    name                  = "hola-mundo-gcf"  
-     description = "a new function"
-
-     build_config {  
-        runtime               = var.python
-        entry_point           = "Hola_Mundo"
-        source  {
-            storage_source  {
-                bucket = google_storage_bucket.function_bucket.name
-                object = google_storage_bucket_object.object.name
-            }
-        }
-    }
+    name        = "hola-mundo-gcf"  
+    description = "a new function"
+    runtime     = var.python
+    entry_point = "Hola_Mundo"
+    bucket      = google_storage_bucket.function_bucket.name
+    object      = google_storage_bucket_object.object.name
 }
