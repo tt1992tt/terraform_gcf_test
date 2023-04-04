@@ -24,6 +24,6 @@ resource "google_cloudfunctions_function" "function" {
     
     depends_on = [
         google_storage_bucket.function_bucket.name,
-        google_storage_bucket_object.object.name
+        google_storage_bucket_object.object
     ]
 }
